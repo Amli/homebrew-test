@@ -62,9 +62,8 @@ class GdalAT341 < Formula
       depends_on "gcc"
     end
   
-    conflicts_with "avce00", because: "both install a cpl_conv.h header"
-    conflicts_with "cpl", because: "both install cpl_error.h"
-  
+    keg_only :versioned_formula
+
     fails_with gcc: "5"
   
     def install
