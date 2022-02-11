@@ -11,6 +11,8 @@ class GdalAT240 < Formula
     sha256 sierra:      "06da56a632bf5ba9719da43c203f09579bad1032b655f9a6bab57ec5c41b2218"
   end
 
+  keg_only :versioned_formula
+
   head do
     url "https://github.com/OSGeo/gdal.git"
     depends_on "doxygen" => :build
@@ -47,8 +49,6 @@ class GdalAT240 < Formula
   depends_on "xerces-c"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
-
-  keg_only :versioned_formula
 
   def install
     args = [

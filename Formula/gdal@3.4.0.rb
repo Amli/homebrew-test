@@ -17,6 +17,8 @@ class GdalAT340 < Formula
     sha256 x86_64_linux:  "76d4bf70767ef017dbb76a2f79efd77873bef22bffc61f0fba34dc439a227424"
   end
 
+  keg_only :versioned_formula
+
   head do
     url "https://github.com/OSGeo/gdal.git"
     depends_on "doxygen" => :build
@@ -59,8 +61,6 @@ class GdalAT340 < Formula
     depends_on "util-linux"
     depends_on "gcc"
   end
-
-  keg_only :versioned_formula
 
   fails_with gcc: "5"
 
