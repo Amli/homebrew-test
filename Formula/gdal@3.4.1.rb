@@ -19,12 +19,12 @@ class GdalAT341 < Formula
     sha256 x86_64_linux:   "97f3fad9261e5fda2bb44b28c68026c08040ebc277179382e95ad52ed7125ac3"
   end
 
-  keg_only :versioned_formula
-
   head do
     url "https://github.com/OSGeo/gdal.git"
     depends_on "doxygen" => :build
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "cfitsio"

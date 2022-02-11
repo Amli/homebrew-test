@@ -11,12 +11,12 @@ class GdalAT240 < Formula
     sha256 sierra:      "06da56a632bf5ba9719da43c203f09579bad1032b655f9a6bab57ec5c41b2218"
   end
 
-  keg_only :versioned_formula
-
   head do
     url "https://github.com/OSGeo/gdal.git"
     depends_on "doxygen" => :build
   end
+
+  keg_only :versioned_formula
 
   depends_on "cfitsio"
   depends_on "epsilon"
@@ -42,7 +42,6 @@ class GdalAT240 < Formula
   depends_on "poppler"
   depends_on "proj"
   depends_on "python"
-  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
   depends_on "webp"
@@ -146,7 +145,6 @@ class GdalAT240 < Formula
     if build.stable? # GDAL 2.3 handles Python differently
       cd "swig/python" do
         system "python3", *Language::Python.setup_install_args(prefix)
-        system "python2", *Language::Python.setup_install_args(prefix)
       end
       bin.install Dir["swig/python/scripts/*.py"]
     end
@@ -164,7 +162,6 @@ class GdalAT240 < Formula
     system "#{bin}/ogrinfo", "--formats"
     if build.stable? # GDAL 2.3 handles Python differently
       system "python3", "-c", "import gdal"
-      system "python2", "-c", "import gdal"
     end
   end
 end
