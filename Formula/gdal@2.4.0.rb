@@ -160,8 +160,6 @@ class GdalAT240 < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
-    if build.stable? # GDAL 2.3 handles Python differently
-      system "python3", "-c", "import gdal"
-    end
+    system "python3", "-c", "import gdal" if build.stable? # GDAL 2.3 handles Python differently
   end
 end
